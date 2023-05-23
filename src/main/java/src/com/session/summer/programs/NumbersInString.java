@@ -7,15 +7,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class NumbersInString {
-    private final Reader reader;
-    private final Printer printer;
-
+public class NumbersInString extends SimplePrograms {
     public NumbersInString(Reader reader, Printer printer) {
-        this.reader = reader;
-        this.printer = printer;
+        super(reader, printer);
     }
 
+    @Override
     public void execute() {
         int[] array = getNumbersFromString();
         System.out.println(array.length == 0 ? "There are no numbers in this line" :
@@ -35,7 +32,7 @@ public class NumbersInString {
         return list.stream().mapToInt(Integer::intValue).toArray();
     }
 
-    private String[] getString () {
+    private String[] getString() {
         System.out.print("Input your line: ");
         return reader.getText().split(" ");
     }

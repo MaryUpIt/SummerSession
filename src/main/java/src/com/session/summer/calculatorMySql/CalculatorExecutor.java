@@ -1,5 +1,6 @@
 package src.com.session.summer.calculatorMySql;
 
+import src.com.session.summer.view.MenuExecutor;
 import src.com.session.summer.view.Printer;
 import src.com.session.summer.view.Reader;
 
@@ -8,10 +9,7 @@ import java.sql.SQLException;
 
 import static src.com.session.summer.calculatorMySql.Operations.*;
 
-public class CalculatorMenu {
-
-    private final Reader reader;
-    private final Printer printer;
+public class CalculatorExecutor extends MenuExecutor {
     private final SqlRequests requests;
 
     private final String MENU = """            
@@ -30,26 +28,33 @@ public class CalculatorMenu {
             Your input: 
             """;
 
-    private final String NEXT = "Do you wish to continue? yes/no: ";
-
-    public CalculatorMenu(Reader reader, Printer printer, Connection connection) {
-        this.reader = reader;
-        this.printer = printer;
+    public CalculatorExecutor(Reader reader, Printer printer, Connection connection) {
+        super(reader, printer);
         this.requests = new SqlRequests(connection);
     }
 
-    public void execute() throws SQLException {
-        int inputNumber = getInputNumber(MENU);
-        if (inputNumber == 11) {
-            System.out.println("Goodbye!");
+
+    @Override
+    protected void executeMenuItem() {
+        try {
+            menuAction();
+        } catch (SQLException e) {
+            printer.printNewLine(e.getMessage());
+        }
+    }
+
+    public void menuAction() throws SQLException {
+        int input = getInputNumber(MENU);
+        if (input == 11) {
+            printer.printNewLine("Goodbye!");
             return;
         }
-        switch (inputNumber) {
+        switch (input) {
             case 1 -> requests.outputAllTables();
             case 2 -> requests.createTable();
             case 10 -> requests.saveToExcel();
             case 3, 4, 5, 6, 7, 8, 9 -> {
-                Operations operation = getOperation(inputNumber);
+                Operations operation = getOperation(input);
                 if (operation == null) {
                     printer.printNewLine("it's not command");
                 } else {
@@ -64,11 +69,6 @@ public class CalculatorMenu {
                 }
             }
             default -> printer.printNewLine("it's not command");
-        }
-        if (isNext("")) {
-            execute();
-        } else {
-            printer.printNewLine("Goodbye!");
         }
     }
 
@@ -95,32 +95,6 @@ public class CalculatorMenu {
         }
     }
 
-    private boolean isNext(String message) {
-        if (!message.isEmpty()) {
-            printer.printNewLine(message);
-        }
-        String input = getMessage(NEXT);
-        return switch (input.trim().toLowerCase()) {
-            case "yes" -> true;
-            case "no" -> false;
-            default -> isNext("Try again");
-        };
-    }
-
-    private int getInputNumber(String message) {
-        printer.print(message);
-        try {
-            return reader.getIntNumber();
-        } catch (NumberFormatException e) {
-            printer.printNewLine("Please, input only numbers");
-            return getInputNumber(message);
-        }
-    }
-
-    private String getMessage(String message) {
-        printer.print(message);
-        return reader.getText();
-    }
 }
 
 

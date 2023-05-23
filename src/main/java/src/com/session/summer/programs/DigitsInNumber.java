@@ -1,20 +1,17 @@
 package src.com.session.summer.programs;
 
+import src.com.session.summer.view.Executor;
 import src.com.session.summer.view.Printer;
 import src.com.session.summer.view.Reader;
 
 import java.util.*;
 
-public class DigitsInNumber {
-    private final Reader READER;
-    private final Printer printer;
-
-
+public class DigitsInNumber extends SimplePrograms {
     public DigitsInNumber(Reader reader, Printer printer) {
-        this.READER = reader;
-        this.printer = printer;
+        super(reader,printer);
     }
 
+    @Override
     public void execute() {
         int number = getNaturalNumber();
         System.out.println(Arrays.toString(getDigits(number)));
@@ -32,7 +29,7 @@ public class DigitsInNumber {
     private int getNaturalNumber() {
         System.out.print("Input a number: ");
         try {
-            int number = READER.getIntNumber();
+            int number = reader.getIntNumber();
             if (number <= 0) {
                 System.out.println("It's not a natural number, try again!");
                 return getNaturalNumber();

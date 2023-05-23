@@ -6,11 +6,8 @@ import src.com.session.summer.view.Reader;
 import java.util.*;
 import java.util.stream.IntStream;
 
-public class StringCalculator {
+public class StringCalculator extends SimplePrograms{
     private static final Map<Integer, String> numbersWords = new TreeMap<>();
-
-    private final Reader reader;
-    private final Printer printer;
 
     static {
         numbersWords.put(0, "ноль");
@@ -45,10 +42,8 @@ public class StringCalculator {
     }
 
     public StringCalculator(Reader reader, Printer printer) {
-        this.reader = reader;
-        this.printer = printer;
+        super(reader, printer);
     }
-
 
     public void execute() {
         String[] input = getInputLine();
@@ -60,7 +55,6 @@ public class StringCalculator {
 
         } catch (IllegalArgumentException e) {
             System.out.println("Your input incorrect, try again!");
-            return;
         }
     }
 
