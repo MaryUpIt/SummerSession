@@ -1,6 +1,9 @@
-package src.com.session.summer.calculatorMySql;
+package src.com.session.summer.controlers;
 
-import src.com.session.summer.view.MenuExecutor;
+import src.com.session.summer.calculatorMySql.Calculator;
+import src.com.session.summer.calculatorMySql.Operations;
+import src.com.session.summer.calculatorMySql.SqlRequests;
+import src.com.session.summer.controlers.MenuExecutor;
 import src.com.session.summer.view.Printer;
 import src.com.session.summer.view.Reader;
 
@@ -24,7 +27,6 @@ public class CalculatorExecutor extends MenuExecutor {
             8. Raising a number to a modulus
             9. Raising a number to a power
             10. Save all data to Excel
-            11. Exit
             Your input: 
             """;
 

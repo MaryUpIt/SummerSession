@@ -1,4 +1,4 @@
-package src.com.session.summer.view;
+package src.com.session.summer.controlers;
 
 public interface Executor {
     void execute();

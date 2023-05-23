@@ -1,12 +1,13 @@
-package src.com.session.summer.programs;
+package src.com.session.summer.programs.firstpart;
 
+import src.com.session.summer.controlers.SimplePrograms;
 import src.com.session.summer.view.Printer;
 import src.com.session.summer.view.Reader;
 
 import java.util.*;
 import java.util.stream.IntStream;
 
-public class StringCalculator extends SimplePrograms{
+public class StringCalculator extends SimplePrograms {
     private static final Map<Integer, String> numbersWords = new TreeMap<>();
 
     static {

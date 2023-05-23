@@ -3,7 +3,7 @@ package src.com.session.summer;
 import src.com.session.summer.util.Config;
 import src.com.session.summer.view.ConsolePrinter;
 import src.com.session.summer.view.KeyboardReader;
-import src.com.session.summer.view.MainExecutor;
+import src.com.session.summer.controlers.MainExecutor;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -14,9 +14,9 @@ public class Main {
 
         KeyboardReader reader = new KeyboardReader(new Scanner(System.in));
         ConsolePrinter printer = new ConsolePrinter(System.out);
-        Connection connection = Config.getInstance().getConnection();
+     //   Connection connection = Config.getInstance().getConnection();
 
-        MainExecutor executor = new MainExecutor(reader,printer,connection);
+        MainExecutor executor = new MainExecutor(reader,printer); //,connection);
         executor.execute();
     }
 }
