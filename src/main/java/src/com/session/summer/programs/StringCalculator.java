@@ -1,4 +1,4 @@
-package src.com.session.summer.programs.firstpart;
+package src.com.session.summer.programs;
 
 import src.com.session.summer.controlers.SimplePrograms;
 import src.com.session.summer.view.Printer;
@@ -46,17 +46,21 @@ public class StringCalculator extends SimplePrograms {
         super(reader, printer);
     }
 
+    @Override
     public void execute() {
-        String[] input = getInputLine();
-        try {
-            int a = getNumber(input[0]);
-            int b = getNumber(input[2]);
-            int result = calculate(input[1], a, b);
-            System.out.println(covertToWord(result));
+        printLine(getInputLine());
+    }
 
-        } catch (IllegalArgumentException e) {
-            System.out.println("Your input incorrect, try again!");
+    private String getInputLine() {
+        String[] input = getLine().split(" ");
+        if (input.length != 3) {
+            printLine("Your input incorrect, try again!");
+            return getInputLine();
         }
+        int a = getNumber(input[0]);
+        int b = getNumber(input[2]);
+        int result = calculate(input[1], a, b);
+        return covertToWord(result);
     }
 
     private int calculate(String operator, int a, int b) {
@@ -64,19 +68,18 @@ public class StringCalculator extends SimplePrograms {
             case "плюс" -> a + b;
             case "минус" -> a - b;
             case "умножить" -> a * b;
-            default -> throw new IllegalStateException("incorrect input");
+            default -> throw new IllegalStateException("Your input incorrect");
         };
     }
 
     private int getNumber(String value) {
         List<String> values = numbersWords.values().stream().toList();
-
         OptionalInt index = IntStream.range(0, values.size())
                 .filter(i -> values.get(i).equals(value)).findFirst();
         if (index.isPresent()) {
             return index.getAsInt();
         }
-        throw new IllegalArgumentException("incorrect input");
+        throw new IllegalArgumentException("Your input incorrect");
     }
 
     private String covertToWord(int number) {
@@ -89,14 +92,5 @@ public class StringCalculator extends SimplePrograms {
         int tens = number - remainder;
         return result.append(numbersWords.get(tens)).append(" ")
                 .append(numbersWords.get(remainder)).toString();
-    }
-
-    private String[] getInputLine() {
-        String[] input = reader.getText().split(" ");
-        if (input.length != 3) {
-            System.out.println("Your input incorrect, try again!");
-            return getInputLine();
-        }
-        return input;
     }
 }

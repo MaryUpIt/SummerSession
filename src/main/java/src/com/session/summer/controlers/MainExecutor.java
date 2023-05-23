@@ -1,13 +1,9 @@
 package src.com.session.summer.controlers;
 
-import src.com.session.summer.programs.firstpart.DigitsInNumber;
-import src.com.session.summer.programs.firstpart.EnglishAlphabet;
-import src.com.session.summer.programs.firstpart.NumbersInString;
-import src.com.session.summer.programs.firstpart.StringCalculator;
+import src.com.session.summer.binarysearch.BinarySearchExecutor;
+import src.com.session.summer.programs.*;
 import src.com.session.summer.view.Printer;
 import src.com.session.summer.view.Reader;
-
-import java.sql.Connection;
 
 public class MainExecutor extends MenuExecutor {
     //private final Connection connection;
@@ -44,9 +40,9 @@ public class MainExecutor extends MenuExecutor {
             case 2 -> new NumbersInString(reader, printer);
             case 3 -> new DigitsInNumber(reader, printer);
             case 4 -> new StringCalculator(reader, printer);
-            //case 5
+            case 5 -> new BinarySearchExecutor(reader,printer);
             case 6 -> new EnglishAlphabet(printer);
-            // case 7
+            case 7 -> new AnyTimesPrinter(reader,printer);
             default -> null;
         };
         if (executor != null) {

@@ -1,4 +1,4 @@
-package src.com.session.summer.programs.firstpart;
+package src.com.session.summer.programs;
 
 import src.com.session.summer.controlers.SimplePrograms;
 import src.com.session.summer.view.Printer;
@@ -21,7 +21,7 @@ public class NumbersInString extends SimplePrograms {
     }
 
     private int[] getNumbersFromString() {
-        String[] line = getString();
+        String[] line = getLine().split(" ");
         List<Integer> list = new ArrayList<>();
         for (String element : line) {
             try {
@@ -32,11 +32,4 @@ public class NumbersInString extends SimplePrograms {
         }
         return list.stream().mapToInt(Integer::intValue).toArray();
     }
-
-    private String[] getString() {
-        System.out.print("Input your line: ");
-        return reader.getText().split(" ");
-    }
-
-
 }

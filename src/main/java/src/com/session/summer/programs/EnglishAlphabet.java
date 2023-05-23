@@ -1,4 +1,4 @@
-package src.com.session.summer.programs.firstpart;
+package src.com.session.summer.programs;
 
 import src.com.session.summer.controlers.Executor;
 import src.com.session.summer.view.Printer;
@@ -10,6 +10,11 @@ public class EnglishAlphabet implements Executor {
         this.printer = printer;
     }
 
+    @Override
+    public void execute() {
+        printer.printNewLine(generateAlphabet());
+    }
+
     private String generateAlphabet() {
         StringBuilder alphabet = new StringBuilder();
         char letter = 'a';
@@ -18,10 +23,5 @@ public class EnglishAlphabet implements Executor {
             letter++;
         }
         return alphabet.toString();
-    }
-
-    @Override
-    public void execute() {
-        printer.printNewLine(generateAlphabet());
     }
 }

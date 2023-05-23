@@ -1,4 +1,4 @@
-package src.com.session.summer.programs.firstpart;
+package src.com.session.summer.programs;
 
 import src.com.session.summer.controlers.SimplePrograms;
 import src.com.session.summer.view.Printer;
@@ -13,7 +13,7 @@ public class DigitsInNumber extends SimplePrograms {
 
     @Override
     public void execute() {
-        int number = getNaturalNumber();
+        int number = getNumber(1, Integer.MAX_VALUE);
         System.out.println(Arrays.toString(getDigits(number)));
     }
 
@@ -25,22 +25,4 @@ public class DigitsInNumber extends SimplePrograms {
         }
         return list.stream().mapToInt(Integer::intValue).toArray();
     }
-
-    private int getNaturalNumber() {
-        System.out.print("Input a number: ");
-        try {
-            int number = reader.getIntNumber();
-            if (number <= 0) {
-                System.out.println("It's not a natural number, try again!");
-                return getNaturalNumber();
-            }
-            return number;
-
-        } catch (NumberFormatException e) {
-            System.out.println("It's not a number, try again!");
-            return getNaturalNumber();
-        }
-    }
-
-
 }
