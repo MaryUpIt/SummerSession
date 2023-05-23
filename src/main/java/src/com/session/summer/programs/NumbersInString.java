@@ -1,5 +1,6 @@
 package src.com.session.summer.programs;
 
+import src.com.session.summer.view.Printer;
 import src.com.session.summer.view.Reader;
 
 import java.util.ArrayList;
@@ -7,10 +8,12 @@ import java.util.Arrays;
 import java.util.List;
 
 public class NumbersInString {
-    private final Reader READER;
+    private final Reader reader;
+    private final Printer printer;
 
-    public NumbersInString(Reader reader) {
-        this.READER = reader;
+    public NumbersInString(Reader reader, Printer printer) {
+        this.reader = reader;
+        this.printer = printer;
     }
 
     public void execute() {
@@ -34,7 +37,7 @@ public class NumbersInString {
 
     private String[] getString () {
         System.out.print("Input your line: ");
-        return READER.getText().split(" ");
+        return reader.getText().split(" ");
     }
 
 

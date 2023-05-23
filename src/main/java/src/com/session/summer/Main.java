@@ -10,10 +10,15 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws SQLException {
+        System.out.println(1/0);
 
-        KeyboardReader reader = new KeyboardReader(new Scanner(System.in));
-        ConsolePrinter printer = new ConsolePrinter(System.out);
-        Connection connection = Config.getInstance().getConnection();
+
+    }
+}
+
+//        KeyboardReader reader = new KeyboardReader(new Scanner(System.in));
+//        ConsolePrinter printer = new ConsolePrinter(System.out);
+//        Connection connection = Config.getInstance().getConnection();
 
 
         // SqlRequests.dropTable(connection);
@@ -29,6 +34,3 @@ public class Main {
 //        NumbersInString numbersInString = new NumbersInString(reader);
 //        numbersInString.execute();
 
-    }
-
-}

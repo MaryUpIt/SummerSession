@@ -1,5 +1,6 @@
 package src.com.session.summer.programs;
 
+import src.com.session.summer.view.Printer;
 import src.com.session.summer.view.Reader;
 
 import java.util.*;
@@ -7,6 +8,9 @@ import java.util.stream.IntStream;
 
 public class StringCalculator {
     private static final Map<Integer, String> numbersWords = new TreeMap<>();
+
+    private final Reader reader;
+    private final Printer printer;
 
     static {
         numbersWords.put(0, "ноль");
@@ -40,10 +44,9 @@ public class StringCalculator {
         numbersWords.put(100, "сто");
     }
 
-    private final Reader reader;
-
-    public StringCalculator(Reader reader) {
+    public StringCalculator(Reader reader, Printer printer) {
         this.reader = reader;
+        this.printer = printer;
     }
 
 

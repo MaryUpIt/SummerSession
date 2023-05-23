@@ -1,15 +1,18 @@
 package src.com.session.summer.programs;
 
+import src.com.session.summer.view.Printer;
 import src.com.session.summer.view.Reader;
 
 import java.util.*;
 
 public class DigitsInNumber {
     private final Reader READER;
+    private final Printer printer;
 
 
-    public DigitsInNumber(Reader reader) {
+    public DigitsInNumber(Reader reader, Printer printer) {
         this.READER = reader;
+        this.printer = printer;
     }
 
     public void execute() {
