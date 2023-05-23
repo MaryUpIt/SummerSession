@@ -33,7 +33,7 @@ public abstract class SimplePrograms implements Executor {
 
 
     protected String getLine() {
-        printer.print("Input your line: ");
+        printer.print("Input your input: ");
         return reader.getText();
     }
 

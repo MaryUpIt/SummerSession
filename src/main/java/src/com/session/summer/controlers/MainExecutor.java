@@ -1,6 +1,8 @@
 package src.com.session.summer.controlers;
 
 import src.com.session.summer.binarysearch.BinarySearchExecutor;
+import src.com.session.summer.calendar.DayOfWeek;
+import src.com.session.summer.calendar.WeekNumber;
 import src.com.session.summer.programs.*;
 import src.com.session.summer.view.Printer;
 import src.com.session.summer.view.Reader;
@@ -43,6 +45,8 @@ public class MainExecutor extends MenuExecutor {
             case 5 -> new BinarySearchExecutor(reader,printer);
             case 6 -> new EnglishAlphabet(printer);
             case 7 -> new AnyTimesPrinter(reader,printer);
+            case 9 -> new DayOfWeek(reader, printer);
+            case 10 -> new WeekNumber(reader, printer);
             default -> null;
         };
         if (executor != null) {
