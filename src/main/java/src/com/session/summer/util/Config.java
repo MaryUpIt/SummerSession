@@ -39,7 +39,6 @@ public class Config {
         }
     }
 
-
     private static File getHomeDir() {
         String properties = System.getProperty("homeDir");
         File homeDir = new File(properties == null ? "." : properties);
