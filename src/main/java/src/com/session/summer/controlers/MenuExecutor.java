@@ -54,5 +54,15 @@ public abstract class MenuExecutor implements Executor {
         };
     }
 
+    protected double getDoubleNumber() {
+        printer.print("Input a number: ");
+        try {
+            return reader.getDoubleNumber();
+        } catch (NumberFormatException e) {
+            printer.printNewLine("It's not a number, try again!");
+            return getDoubleNumber();
+        }
+    }
+
 
 }

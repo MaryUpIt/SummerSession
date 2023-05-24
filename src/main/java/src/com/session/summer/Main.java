@@ -1,11 +1,9 @@
 package src.com.session.summer;
 
-import src.com.session.summer.util.Config;
 import src.com.session.summer.view.ConsolePrinter;
 import src.com.session.summer.view.KeyboardReader;
-import src.com.session.summer.controlers.MainExecutor;
+import src.com.session.summer.controlers.FirstPartExecutor;
 
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Scanner;
 
@@ -16,7 +14,7 @@ public class Main {
         ConsolePrinter printer = new ConsolePrinter(System.out);
      //   Connection connection = Config.getInstance().getConnection();
 
-        MainExecutor executor = new MainExecutor(reader,printer); //,connection);
+        FirstPartExecutor executor = new FirstPartExecutor(reader,printer); //,connection);
         executor.execute();
     }
 }

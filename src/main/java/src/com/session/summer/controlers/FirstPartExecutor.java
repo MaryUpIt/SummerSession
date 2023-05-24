@@ -7,7 +7,7 @@ import src.com.session.summer.programs.*;
 import src.com.session.summer.view.Printer;
 import src.com.session.summer.view.Reader;
 
-public class MainExecutor extends MenuExecutor {
+public class FirstPartExecutor extends MenuExecutor {
     //private final Connection connection;
 
     private final String MENU = """            
@@ -22,10 +22,11 @@ public class MainExecutor extends MenuExecutor {
             8. The cubes of the first ten positive numbers
             9. Determine day of the week for a date
             10. Find the week number for a date from 2020 to 2022
+            11. Next tasks
             Your input:  
             """;
 
-    public MainExecutor(Reader reader, Printer printer) { //, Connection connection) {
+    public FirstPartExecutor(Reader reader, Printer printer) { //, Connection connection) {
         super(reader, printer);
         //  this.connection = connection;
     }
@@ -33,10 +34,6 @@ public class MainExecutor extends MenuExecutor {
     @Override
     public void executeMenuItem() {
         int input = getInputNumber(MENU);
-        if (input == 11) {
-            printer.printNewLine("Goodbye!");
-            return;
-        }
         Executor executor = switch (input) {
             //  case 1 -> new CalculatorExecutor(reader, printer, connection);
             case 2 -> new NumbersInString(reader, printer);
@@ -45,8 +42,10 @@ public class MainExecutor extends MenuExecutor {
             case 5 -> new BinarySearchExecutor(reader,printer);
             case 6 -> new EnglishAlphabet(printer);
             case 7 -> new AnyTimesPrinter(reader,printer);
+            case 8 -> new Cubes(printer);
             case 9 -> new DayOfWeek(reader, printer);
             case 10 -> new WeekNumber(reader, printer);
+            case 11 -> new SecondPartExecutor(reader, printer);
             default -> null;
         };
         if (executor != null) {

@@ -47,10 +47,6 @@ public class CalculatorExecutor extends MenuExecutor {
 
     public void menuAction() throws SQLException {
         int input = getInputNumber(MENU);
-        if (input == 11) {
-            printer.printNewLine("Goodbye!");
-            return;
-        }
         switch (input) {
             case 1 -> requests.outputAllTables();
             case 2 -> requests.createTable();

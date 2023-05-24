@@ -18,7 +18,12 @@ public class KeyboardReader implements Reader {
 
     @Override
     public int getIntNumber() {
-        return Integer.parseInt(scanner.nextLine());
+        return Integer.parseInt(scanner.nextLine().trim());
+    }
+
+    @Override
+    public double getDoubleNumber() {
+        return Double.parseDouble(scanner.nextLine().trim());
     }
 
     @Override

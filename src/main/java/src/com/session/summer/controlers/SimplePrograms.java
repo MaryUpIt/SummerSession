@@ -21,6 +21,15 @@ public abstract class SimplePrograms implements Executor {
             return getNumber();
         }
     }
+    protected double getDoubleNumber() {
+        printer.print("Input a number: ");
+        try {
+            return reader.getDoubleNumber();
+        } catch (NumberFormatException e) {
+            printer.printNewLine("It's not a number, try again!");
+            return getNumber();
+        }
+    }
 
     protected int getNumber(int min, int max) {
         int number = getNumber();
