@@ -1,4 +1,4 @@
-package src.com.session.summer.controlers;
+package src.com.session.summer.calculatorMySql;
 
 import src.com.session.summer.calculatorMySql.Calculator;
 import src.com.session.summer.calculatorMySql.Operations;

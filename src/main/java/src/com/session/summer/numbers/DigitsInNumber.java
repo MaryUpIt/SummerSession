@@ -1,4 +1,4 @@
-package src.com.session.summer.programs;
+package src.com.session.summer.numbers;
 
 import src.com.session.summer.controlers.SimplePrograms;
 import src.com.session.summer.view.Printer;

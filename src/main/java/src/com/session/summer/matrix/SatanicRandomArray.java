@@ -1,4 +1,4 @@
-package src.com.session.summer.programs;
+package src.com.session.summer.matrix;
 
 import src.com.session.summer.controlers.SimplePrograms;
 import src.com.session.summer.util.Randomizer;

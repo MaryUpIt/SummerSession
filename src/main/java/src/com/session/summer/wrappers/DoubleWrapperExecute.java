@@ -1,7 +1,6 @@
 package src.com.session.summer.wrappers;
 
 import src.com.session.summer.controlers.MenuExecutor;
-import src.com.session.summer.controlers.SimplePrograms;
 import src.com.session.summer.view.Printer;
 import src.com.session.summer.view.Reader;
 

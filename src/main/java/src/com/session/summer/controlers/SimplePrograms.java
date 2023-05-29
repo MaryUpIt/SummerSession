@@ -12,26 +12,31 @@ public abstract class SimplePrograms implements Executor {
         this.printer = printer;
     }
 
-    protected int getNumber() {
-        printer.print("Input a number: ");
+    protected int getNumber(String input) {
+        printer.print(input);
         try {
             return reader.getIntNumber();
         } catch (NumberFormatException e) {
             printer.printNewLine("It's not a number, try again!");
-            return getNumber();
+            return getNumber(input);
         }
     }
+
+    protected int getNumber() {
+        return getNumber("Input a number: ");
+    }
+
     protected double getDoubleNumber() {
         printer.print("Input a number: ");
         try {
             return reader.getDoubleNumber();
         } catch (NumberFormatException e) {
             printer.printNewLine("It's not a number, try again!");
-            return getNumber();
+            return getNumber("Input a number: ");
         }
     }
 
-    protected int getNumber(int min, int max) {
+    protected int getNumber( int min, int max) {
         int number = getNumber();
         if (min > number || number > max) {
             printer.printNewLine(String.format("Please input number in range between %d and %d", min, max));
@@ -41,8 +46,8 @@ public abstract class SimplePrograms implements Executor {
     }
 
 
-    protected String getLine() {
-        printer.print("Input your input: ");
+    protected String getLine(String input) {
+        printer.print(input);
         return reader.getText();
     }
 

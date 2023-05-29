@@ -13,19 +13,22 @@ public class BinarySearchExecutor extends SimplePrograms {
 
     @Override
     public void execute() {
-        int number = getNumber(1, 100);
-        BinaryTree<Integer> binaryTree = generateBinaryTree();
+        int size = getNumber("Input list size: ");
+        int minValue = getNumber("Input min value: ");
+        int maxValue = getNumber("Input max value: ");
+        int number = getNumber( minValue, maxValue);
+        BinaryTree<Integer> binaryTree = generateBinaryTree(size,minValue,maxValue);
         printLine(String.format("Random binary tree: %s", binaryTree.toString()));
         printLine(String.format("Binary tree %s a value %d",
                 (binaryTree.isExist(number) ? "contain" : "not contain"),
                 number));
     }
 
-    private BinaryTree<Integer> generateBinaryTree() {
+    private BinaryTree<Integer> generateBinaryTree(int size, int minValue, int maxvalue) {
         BinaryTree<Integer> binaryTree = new BinaryTree<>();
 
-        while (binaryTree.size() < 30) {
-            binaryTree.add(Randomizer.generateRandomInt(1, 100));
+        while (binaryTree.size() < size) {
+            binaryTree.add(Randomizer.generateRandomInt(minValue, maxvalue));
         }
         return binaryTree;
     }

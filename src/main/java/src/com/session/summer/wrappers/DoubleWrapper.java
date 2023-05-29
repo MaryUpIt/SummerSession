@@ -1,7 +1,5 @@
 package src.com.session.summer.wrappers;
 
-import java.util.HashMap;
-
 public class DoubleWrapper {
 
     private final double value;

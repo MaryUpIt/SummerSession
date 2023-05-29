@@ -52,13 +52,13 @@ public class StringCalculator extends SimplePrograms {
     }
 
     private String getInputLine() {
-        String[] input = getLine().split(" ");
+        String[] input = getLine("Your input: ").split(" ");
         if (input.length != 3) {
             printLine("Your input incorrect, try again!");
             return getInputLine();
         }
-        int a = getNumber(input[0]);
-        int b = getNumber(input[2]);
+        int a = getNumberFromString(input[0]);
+        int b = getNumberFromString(input[2]);
         int result = calculate(input[1], a, b);
         return covertToWord(result);
     }
@@ -72,7 +72,7 @@ public class StringCalculator extends SimplePrograms {
         };
     }
 
-    private int getNumber(String value) {
+    private int getNumberFromString(String value) {
         List<String> values = numbersWords.values().stream().toList();
         OptionalInt index = IntStream.range(0, values.size())
                 .filter(i -> values.get(i).equals(value)).findFirst();

@@ -1,7 +1,7 @@
 package src.com.session.summer.controlers;
 
 import src.com.session.summer.programs.Factorial;
-import src.com.session.summer.programs.SatanicRandomArray;
+import src.com.session.summer.matrix.SatanicRandomArray;
 import src.com.session.summer.triangle.TriangleExecute;
 import src.com.session.summer.view.Printer;
 import src.com.session.summer.view.Reader;

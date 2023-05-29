@@ -12,7 +12,7 @@ public class AnyTimesPrinter extends SimplePrograms {
 
     @Override
     public void execute() {
-        String line = getLine();
+        String line = getLine("Input your line: ");
         int count = getNumber();
         while (count > 0) {
             printLine(line);

@@ -21,7 +21,7 @@ public class NumbersInString extends SimplePrograms {
     }
 
     private int[] getNumbersFromString() {
-        String[] line = getLine().split(" ");
+        String[] line = getLine("Input your line: ").split(" ");
         List<Integer> list = new ArrayList<>();
         for (String element : line) {
             try {
